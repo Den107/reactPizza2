@@ -13,12 +13,13 @@ const Home = () => {
         fetch('https://62ff94ea9350a1e548e1fe37.mockapi.io/items')
             .then(res => res.json())
             .then(res => {
-                setIsLoading(false)
                 setItems(res)
+                setIsLoading(false)
             })
+        window.scrollTo(0, 0)
     }, [])
     return (
-        <>
+        <div className="container">
             <div className="content__top">
                 <Categories/>
                 <Sort/>
@@ -30,7 +31,7 @@ const Home = () => {
                         <PizzaBlock key={value.id} {...value}/>)
                 }
             </div>
-        </>
+        </div>
     );
 };
 
